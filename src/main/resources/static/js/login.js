@@ -30,7 +30,7 @@ $("#IniciarSesion").click((e)=>{
 
         const respuestaJson = await respuesta.json()
         if(respuestaJson.id != null){
-            alert("Bienvenido"+respuestaJson.nombre)
+            alert("Bienvenido "+respuestaJson.name)
         }else {
             alert("Usuario o contraseña incorrectos o no existe")
         }
