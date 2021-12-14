@@ -21,7 +21,7 @@ $("#IniciarSesion").click((e)=>{
 
 
 
-        const respuesta = await fetch("http://168.138.133.236:8080/api/user/"+ $("#values-email").val()+"/"+$("#values-password").val() , {
+        const respuesta = await fetch("http://132.226.247.174:8080/api/user/"+ $("#values-email").val()+"/"+$("#values-password").val() , {
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
