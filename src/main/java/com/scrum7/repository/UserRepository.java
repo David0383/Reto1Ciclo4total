@@ -9,7 +9,6 @@ import com.scrum7.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.scrum7.repositoryCrud.UserCrudRepository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -25,9 +24,11 @@ public class UserRepository {
     public Optional<User> getUser (int id){
         return userCrudRepository.findById(id);
     }
-    public User save (User user){
+    public User  registrar (User user){
         return userCrudRepository.save(user);
     }
+    public void update(User user) {userCrudRepository.save(user);}
+    public void delete(User user) {userCrudRepository.delete(user);}
     public boolean existeEmail(String email){
         Optional<User> usuario = userCrudRepository.findByEmail(email);
         return !usuario.isEmpty();

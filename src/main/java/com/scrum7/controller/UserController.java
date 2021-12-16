@@ -34,14 +34,26 @@ public class UserController {
         return userService.registrar(user);
     }
 
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User update(@RequestBody User user) {
+        return userService.update(user);
+    }
+
+    @GetMapping("/existeEmail/{email}")
+    public boolean existeEmail(@PathVariable("email") String email){
+        return userService.existeEmail(email);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return userService.delete(id);
+    }
+
     @GetMapping("/{email}/{password}")
     public User autenticarUsuario(@PathVariable("email") String email, @PathVariable("password") String password){
         return userService.autenticarUsuario(email, password);
-    }
-
-    @GetMapping("/{email}")
-    public boolean existeEmail(@PathVariable("email") String email){
-        return userService.existeEmail(email);
     }
 
 }

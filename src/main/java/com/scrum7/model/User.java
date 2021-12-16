@@ -5,38 +5,36 @@ package com.scrum7.model;
  * @author Jeison Hernandez
  */
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import javax.persistence.*;
-import java.io.Serializable;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
+
+
+@Document(collection = "users")
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-@Table(name = "user", indexes = @Index(name = "indx_email", columnList = "user_email", unique = true))
+@AllArgsConstructor
 
-public class User implements Serializable {
+public class User {
     /**
      *
      * Datos para la creacion de la tabla User
      */
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NonNull
-    @Column(name = "user_email", nullable = false, length = 50)
-    private String email;
-    @NonNull
-    @Column(name = "user_password", nullable = false, length = 50)
-    private String password;
-    @NonNull
-    @Column(name = "user_name", nullable = false, length = 50)
+    private String identification;
     private String name;
+    private String address;
+    private String cellPhone;
+    private String email;
+    private String password;
+    private String zone;
+    private String type;
+
+
 
 
 
