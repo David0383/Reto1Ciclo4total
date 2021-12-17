@@ -40,7 +40,7 @@ public class UserController {
         return userService.update(user);
     }
 
-    @GetMapping("/existeEmail/{email}")
+    @GetMapping("/emailexist/{email}")
     public boolean existeEmail(@PathVariable("email") String email){
         return userService.existeEmail(email);
     }
